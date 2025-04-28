@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="UTF-8"> 
+    <title>DASH Player</title> 
+    <script src="dash.all.min.js"></script> 
+    <style> 
+      body { 
+        margin: 0; 
+        height: 100vh; 
+        display: flex; 
+        justify-content: center;  /* Horizontal centering */ 
+        align-items: center;      /* Vertical centering */ 
+        background-color: #f0f0f0; /* Optional: background color */ 
+      } 
+  
+      video { 
+        width: 1920px; 
+        height: 1080px; 
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Optional: styling */ 
+      } 
+    </style> 
+  </head> 
+  <video class="dashjs-player" autoplay controls preload="auto"> 
+    <source src="https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd" type="application/dash+xml" /> 
+  </video> 
+  
+  <script> 
+    var player; 
+    document.addEventListener("DOMContentLoaded", function () { 
+      init(); 
+    }); 
+  
+    function init() { 
+      player = dashjs.MediaPlayerFactory.create( 
+        document.querySelector(".dashjs-player") 
+      ); 
+    } 
+  </script> 
+</html>
